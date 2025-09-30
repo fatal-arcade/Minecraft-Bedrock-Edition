@@ -1,9 +1,43 @@
 
 @font-face {
-  src: url('../fonts/psyonicexpand.ttf') format('truetype');
-  font-family: 'PsyonicVII';      							
-  font-weight:  normal;
-  font-style: 	normal;
+  	src: url('../fonts/PsyonicExpand.ttf') format('truetype');
+  	font-family: 'PsyonicVII';      							
+  	font-weight: normal;
+	font-style:	 normal;
+}
+
+@font-face {
+	src: url('../fonts/PressStart2P.ttf') format('truetype');
+  	font-family: 'PressStart2P';      							
+  	font-weight: normal;
+  	font-style:  normal;
+}
+
+@font-face {
+	src: url('../fonts/MinecraftTen.ttf') format('truetype');
+  	font-family: 'MinecraftTen';      							
+  	font-weight: normal;
+  	font-style:  normal;
+}
+
+@font-face {
+	src: url('../fonts/MinecraftPE.ttf') format('truetype');
+  	font-family: 'MinecraftPE';      							
+  	font-weight: normal;
+  	font-style:  normal;
+}
+
+@keyframes orbit-osc {
+	/* top */
+	0% 	 { background-position:  50%   0%; }
+	/* left */
+	25%  { background-position:   0%  50%; }
+	/* bottom */
+	50%  { background-position:  50% 100%; }
+	/* right */
+	75%  { background-position: 100%  50%; }
+	/* top */
+	100% { background-position:  50%   0%; }
 }
 
 :root {
@@ -11,10 +45,13 @@
 	--color-theme-blue:   rgba( 60,  60, 180, 1.0);
 	--color-theme-gray:   rgba( 30,  30,  30, 1.0);
 	--color-theme-black:  rgba(  0,   0,   0, 1.0);
+	--color-theme-blank:  rgba(255, 255, 255, 1.0);
 	--color-theme-green:  rgba( 40, 160,  80, 1.0);
-	--color-theme-white:  rgba(200, 200, 200, 1.0);
-	--color-theme-orange: rgba(180, 100,   0, 1.0);
-	--color-theme-yellow: rgba(180, 160,   0, 1.0);
+	--color-theme-forest: rgba( 30, 140,  60, 1.0);
+	--color-theme-white:  rgba(220, 220, 220, 1.0);
+	--color-theme-shell:  rgba(180, 180, 180, 1.0);
+	--color-theme-orange: rgba(255, 140,   0, 1.0);
+	--color-theme-yellow: rgba(255, 255,   0, 1.0);
 
 	--color-contrast:     rgba(  0,   0,   0, 0.7);
 	--color-transparent:  rgba(  0,   0,   0, 0.0);
@@ -22,103 +59,218 @@
 	--color-background:  var(--color-theme-white);
 	--color-font-major:  var(--color-theme-black);
 	--color-font-minor:  var(--color-theme-gray);
-	--color-font-accent: var(--color-theme-red);
+	--color-font-invert: var(--color-theme-blank);
+	--color-font-accent: var(--color-theme-green);
 }
 
 body {
 
 	/* font */
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-family: 'Courier New', Courier, monospace, sans-serif;
 	color: var(--color-font-major);
 	
 	/* background */
 	background-color: var(--color-background);
-	background-image: url('../img/cab-and-xbone-front.png');
-	background-repeat: no-repeat;
-	background-attachment: scroll;
-	background-size: clamp(25vw, 448px, 512px);
-	background-position-x: center;
-	background-position-y: calc(100vh * 0.25);
 	
 	/* transforms */
 	display: block;
 	margin: auto;
 }
 
-#mygamertag {
+#socials {
+
+	/* background */
+	background-color: var(--color-transparent);
+
+	/* transforms */
+	height: calc(10vw * 0.25);
+	width: 75vw;
+	margin: 0.5vw auto;
+	display: flex;
+	justify-content: right;
+}
+
+.myhandle {
 
 	/* font */
 	font-family: PsyonicVII, sans-serif;
-	font-size: clamp(3vw, 48px, 64px);
-	color: var(--color-theme-yellow);
+	font-size: 2vw;
+	color: var(--color-font-accent);
+	text-shadow: 1px 1px 1px var(--color-font-major);
+
+	/* background */
+	background-color: var(--color-transparent);
+
+	/* transforms */
+	height: calc(10vw * 0.20);
+	width: calc(75vw * 0.75);
+	margin: auto;
+	text-align: left;
+	
+}
+
+.icons {
+
+	/* background */
+	background-color: var(--color-white);
+	background-size: contain;
+	mix-blend-mode: multiply;
+	filter: grayscale(100%) contrast(1000%) invert(5%);
 	
 	/* transforms */
-	margin: 15px 0 10px 25px;
-	float: left;
+	height: calc(10vw * 0.25);
+	width: calc(10vw * 0.25);
+	margin: 0 .75vw;
 }
 
-#navheader {
-	background-color: var(--color-contrast);
-	justify-content: center;
-	display: inline-flex;
-	height: clamp(10vh, 80px, 100px);
-	width: 100%;
+.icons:hover {
+	filter: grayscale(100%) contrast(1000%) invert(5%) opacity(50%);
 }
 
-#navbar-button {
-	background-color: var(--color-transparent);
-	background-image: url('../img/cab-and-xbone-side.png');
+#github-io 	{background-image: url('../img/cab-and-xbone-side.png');}
+
+#github-com {background-image: url('../img/social-media/github.png');}
+
+#itch-io 	{background-image: url('../img/social-media/itch.png');}
+
+#youtube 	{background-image: url('../img/social-media/youtube-icon.png');}
+
+#discord 	{background-image: url('../img/social-media/discord-icon.png');}
+
+
+#top-banner {
+
+	/* font */
+	font-family: MinecraftPE, sans-serif;
+	text-align: center;
+	text-shadow: 2px 2px 8px var(--color-theme-black);
+	
+	/* background */
+	background-image: url('../img/kingdom_cavern.jpg');
 	background-repeat: no-repeat;
-	background-position-x: center;
-	background-position-y: center;
-	background-size: 100%;
-	border: none;
-	margin-top: 1vh;
-	margin-left: 1vw;
-	min-width: 60px;
-	min-height: 60px;
+	background-size: 125%;
+	animation: orbit-osc linear 20s infinite alternate;
+	filter: contrast(110%);
 
-	width: 3.5vw;
-	height: 3.5vw;
-	z-index:1000;
-	float: left;
-	font-size:3vw;
-	color: var(--color-font-major);
-	cursor:pointer;	
-	filter: invert(80%);
+	/* transforms */
+	height: calc(75vw * 0.25);
+	width: 75vw;
+	margin: auto;
+	display: block;
+
 }
 
+#top-banner > div:first-child {
+	height: 1vw;
+}
 
-#navbar-button:hover {
-	filter: invert(80%) saturate(100%) sepia(100%) hue-rotate(180deg);
+#top-banner > h1 {
+	
+	/* font */
+	font-size: 6vw;
+	color: var(--color-font-invert);
+
+	/* transforms */
+	height: 3.5vw;
+}
+
+#top-banner > h2 {
+	
+	/* font */
+	font-family: PressStart2P, sans-serif;
+	font-size: 2vw;
+	text-align: right;
+	color: var(--color-theme-yellow);
+
+	/* transforms */
+	height: 3vw;
+	width: 0;
+	margin-top: auto;
+	margin-left: 48vw;
+	rotate: -15deg;
+
+}
+
+#top-banner > h3 {
+	
+	/* font */
+	font-family: Arial, sans-serif;
+	font-size: 1vw;
+	color: var(--color-font-invert);
+	text-align: left;
+
+	/* background */
+	background-color: var(--color-contrast);
+
+	/* transforms */
+	width: 30vw;
+	margin-left: 0.5vw;
+	padding-left: 0.5vw;
+
 }
 
 #navbar {
-	background: var(--color-theme-green);
-	font-family: monospace, sans-serif;
-	font-size: clamp(3vw, 24px, 32px);
-	color: var(--color-theme-black);
-	display: inline-flex;
-	height: 4vh;
-	width: 100vw;
-	box-sizing: border-box;
-	transition: height 0.3s ease;
-	overflow: hidden;
+	
+	background: var(--color-contrast);
+
+	height: 5vh;
+	width: 75vw;
+	
+	justify-content: space-evenly;
+	margin: 0 auto;
+	display: flex;
+
 }
 
-#navbar.collapsed {
-	height: 0px;
+.buttons {
+	font-family: MinecraftTen, sans-serif;
+	font-size: 1.35vw;
+	color: var(--color-font-minor);
+
+	border-color: var(--color-theme-black);
+	background: radial-gradient(var(--color-theme-blank), var(--color-theme-shell));
+
+	flex: 1; 
 }
 
-#navbar a {
-	margin: auto auto;
-	font-size: 1.25vw;
-	color: var(--color-font-major);
-	text-decoration:none;
+.buttons:hover {
+	color: var(--color-font-invert);
+	border-color: var(--color-theme-blank);
+	background: radial-gradient(var(--color-theme-green), var(--color-theme-forest));
 }
 
-/* Main content */
-main {
-	flex: 1;
-	padding: 0px;
+.content {
+
+	font-family: MinecraftTen, sans-serif;
+	font-size: 2vw;
+
+	width: 75vw;
+
+	justify-content: center;
+	display: flex;
+	margin: 10vh auto;
+
+}
+
+
+footer {
+	
+	/* font */
+	font-family: Segoe UI, sans-serif;
+	font-size: 1vw;
+	text-align: center;
+	color: var(--color-font-invert);
+
+	/* background */
+	background-color: var(--color-contrast);
+	border-top: 4px solid var(--color-font-accent);
+
+	/* transforms */
+	position: fixed;
+	left: calc(25vw * 0.5);
+	bottom: 0;
+	z-index: 1000;
+	width: 75vw;
+	padding: 0.5vw;
+
 }
