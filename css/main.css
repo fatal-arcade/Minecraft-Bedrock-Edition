@@ -1,0 +1,124 @@
+
+@font-face {
+  src: url('../fonts/psyonicexpand.ttf') format('truetype');
+  font-family: 'PsyonicVII';      							
+  font-weight:  normal;
+  font-style: 	normal;
+}
+
+:root {
+	--color-theme-red:    rgba(180,  20,  60, 1.0);
+	--color-theme-blue:   rgba( 60,  60, 180, 1.0);
+	--color-theme-gray:   rgba( 30,  30,  30, 1.0);
+	--color-theme-black:  rgba(  0,   0,   0, 1.0);
+	--color-theme-green:  rgba( 40, 160,  80, 1.0);
+	--color-theme-white:  rgba(200, 200, 200, 1.0);
+	--color-theme-orange: rgba(180, 100,   0, 1.0);
+	--color-theme-yellow: rgba(180, 160,   0, 1.0);
+
+	--color-contrast:     rgba(  0,   0,   0, 0.7);
+	--color-transparent:  rgba(  0,   0,   0, 0.0);
+	
+	--color-background:  var(--color-theme-white);
+	--color-font-major:  var(--color-theme-black);
+	--color-font-minor:  var(--color-theme-gray);
+	--color-font-accent: var(--color-theme-red);
+}
+
+body {
+
+	/* font */
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	color: var(--color-font-major);
+	
+	/* background */
+	background-color: var(--color-background);
+	background-image: url('../img/cab-and-xbone-front.png');
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-size: clamp(25vw, 448px, 512px);
+	background-position-x: center;
+	background-position-y: calc(100vh * 0.25);
+	
+	/* transforms */
+	display: block;
+	margin: auto;
+}
+
+#mygamertag {
+
+	/* font */
+	font-family: PsyonicVII, sans-serif;
+	font-size: clamp(3vw, 48px, 64px);
+	color: var(--color-theme-yellow);
+	
+	/* transforms */
+	margin: 15px 0 10px 25px;
+	float: left;
+}
+
+#navheader {
+	background-color: var(--color-contrast);
+	justify-content: center;
+	display: inline-flex;
+	height: clamp(10vh, 80px, 100px);
+	width: 100%;
+}
+
+#navbar-button {
+	background-color: var(--color-transparent);
+	background-image: url('../img/cab-and-xbone-side.png');
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-position-y: center;
+	background-size: 100%;
+	border: none;
+	margin-top: 1vh;
+	margin-left: 1vw;
+	min-width: 60px;
+	min-height: 60px;
+
+	width: 3.5vw;
+	height: 3.5vw;
+	z-index:1000;
+	float: left;
+	font-size:3vw;
+	color: var(--color-font-major);
+	cursor:pointer;	
+	filter: invert(80%);
+}
+
+
+#navbar-button:hover {
+	filter: invert(80%) saturate(100%) sepia(100%) hue-rotate(180deg);
+}
+
+#navbar {
+	background: var(--color-theme-green);
+	font-family: monospace, sans-serif;
+	font-size: clamp(3vw, 24px, 32px);
+	color: var(--color-theme-black);
+	display: inline-flex;
+	height: 4vh;
+	width: 100vw;
+	box-sizing: border-box;
+	transition: height 0.3s ease;
+	overflow: hidden;
+}
+
+#navbar.collapsed {
+	height: 0px;
+}
+
+#navbar a {
+	margin: auto auto;
+	font-size: 1.25vw;
+	color: var(--color-font-major);
+	text-decoration:none;
+}
+
+/* Main content */
+main {
+	flex: 1;
+	padding: 0px;
+}
